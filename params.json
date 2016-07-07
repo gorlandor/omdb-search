@@ -1,0 +1,6 @@
+{
+  "name": "Omdb-search",
+  "tagline": "A Polymer custom element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.",
+  "body": "### Authors and Contributors\r\nCreated by Giovanni Orlando Rivera [@giovanni0918](https://github.com/giovanni0918) on July 2016 using Polymer and the Open Movie Database OMDb API.\r\n\r\nDisclaimer: I do not own any of the data being fetched from the OMDb API, I am just an user/donor.\r\n\r\n### Support or Contact\r\nHaving trouble using omdb-search web-component with your application? Check out our documentation for more info.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
