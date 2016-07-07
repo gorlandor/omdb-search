@@ -1,0 +1,205 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+
+<!--
+An element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.
+
+Example:
+
+    <omdb-search q="Harry Potter"
+      type="movie" year="2010" page="1">
+    </omdb-search>
+
+Example:
+
+    <omdb-search q="Spongebob" type="series"></omdb-search>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="omdb-search">
+    <template>
+        <style>
+            :host {
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .author img {
+                display: block;
+                float: left;
+                margin-right: 5px;
+                max-height: 100px;
+                max-width: 100px;
+            }
+
+            div.results-list {
+                @apply(--omdb-search-results-list-theme)
+            }
+
+            a.results-list-item {
+                display: block;
+                border: 1px solid #eee;
+                margin: 4px 0;
+                padding: 0 16px;
+                font-family: 'Lato', sans-serif;
+                color: crimson;
+                overflow-y: auto;
+                @apply(--omdb-search-results-list-item-theme)
+            }
+
+            a:hover,
+            a:active {
+                color: #55ACEE;
+            }
+
+            img.results-list-item-poster {
+                width: 25%;
+                max-width: 128px;
+                float: left;
+                padding: 8px 4px;
+                @apply(--omdb-search-results-list-item-poster-theme)
+            }
+
+            div.wrapper {
+                width: 70%;
+                float: right;
+                margin-top: 16px;
+            }
+
+            h4.results-list-item-heading {
+                @apply(--omdb-search-results-list-item-heading-theme)
+            }
+
+            p.results-list-item-text {
+                @apply(--omdb-search-results-list-item-text-theme)
+            }
+
+            span.results-list-item-val {
+                @apply(--omdb-search-results-list-item-val-theme)
+            }
+        </style>
+
+        <iron-ajax auto url="{{url}}" handle-as="json" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>
+        <div class="results-list">
+            <template is="dom-repeat" items="{{response.Search}}">
+                <a href="#" class="results-list-item" on-click="_handleClick">
+                    <img class="results-list-item-poster" src$="{{_computeImgSrc(item.Poster)}}" alt="{{item.Title}}">
+                    <div class="wrapper">
+                        <h4 class="results-list-item-heading">{{item.Title}}</h4>
+                        <p class="results-list-item-text">Year: <span class="results-list-item-val">{{item.Year}}</span></p>
+                        <p class="results-list-item-text">imdbID: <span class="results-list-item-val">{{item.imdbID}}</span></p>
+                    </div>
+                </a>
+            </template>
+        </div>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'omdb-search',
+
+            properties: {
+                /**
+                 * Specifies the movie, series, or episode title to query.
+                 * Search value.
+                 * Is required. */
+                q: {
+                    type: String,
+                    value: 'Harry Potter',
+                    notify: true
+                },
+                /**
+                 * Search result type. Can be either movie, series, or episode.
+                 * Is Optional. */
+                type: {
+                    type: String,
+                    value: "movie",
+                    notify: true
+                },
+                /**
+                 * Number representing the year in which the movie, series,
+                 * or episode was released.
+                 * Is optional. */
+                year: {
+                    type: Number,
+                    value: '',
+                    notify: true
+                },
+                /**
+                 * Specifies the data-interchange format to be used in ajax call.
+                 * Can be either json, or xml.
+                 * Is required. */
+                responseType: {
+                    type: String,
+                    value: 'json',
+                    notify: false
+                },
+                /**
+                 * Specifies the results-list page number,
+                 * since OMDb pages search results (10 results per page).
+                 * Is optional. */
+                page: {
+                    type: Number,
+                    value: 1,
+                    notify: true
+                },
+                /**
+                 * Specified the OMDb API version number, for future reference
+                 * when said API updated.
+                 * Is optional. */
+                apiVersion: {
+                    type: Number,
+                    value: 1,
+                    notify: false
+                },
+                /**
+                 * Url computed from user assigned element props.
+                 * Is required. */
+                url: {
+                    computed: 'computeUrl(q, type, year, responseType, page, apiVersion)'
+                }
+            },
+            /**
+             * Computes and returns the request Url from the
+             * user assigned element props. */
+            computeUrl: function(q, type, year, responseType, page, apiVersion) {
+                return [
+                    'http://www.omdbapi.com/?', 's=', q, '&type=', type, '&y=', year, '&r=', responseType, '&page=', page, '&v=', apiVersion
+                ].join('');
+            },
+            /**
+             * Checks if the image source value received as input is valid,
+             * otherwise returns empty string to default to the alt text. */
+            _computeImgSrc: function(src) {
+                return (src === 'N/A') ? "" : src;
+            },
+            /**
+             * Used as the iron-ajax response handler function. */
+            _handleResponse: function(event) {
+                var omdbSearch = omdbSearch || {};
+                omdbSearch.omdbResponse = event.detail.response;
+                console.debug(omdbSearch);
+            },
+            /**
+             * Results list-item onClick listener function. */
+            _handleClick: function(event) {
+                console.debug(event.model.item);
+            }
+
+        });
+    </script>
+</dom-module>

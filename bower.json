@@ -1,0 +1,35 @@
+{
+  "name": "omdb-search",
+  "version": "0.0.1",
+  "authors": [
+    "Giovanni Orlando Rivera <gorlandor@gmail.com>"
+  ],
+  "description": "An element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed",
+    "OMDb",
+    "open-movie-database",
+    "search",
+    "movies",
+    "series",
+    "episode",
+    "gorlandor",
+    "giovanni0918"
+  ],
+  "main": "omdb-search.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/giovanni0918/omdb-search/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}
