@@ -1,0 +1,89 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Giovanni Orlando">
+        <meta name="description" content="Demo showcasing how to use omdb-search web component to fetch movie, series, episode data from the Open Movie Database (OMDb) api.">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+        <title>omdb-search Demo</title>
+        <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <link rel="import" href="../omdb-search.html">
+        <link rel="import" href="../omdb-search-theme.html">
+
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: inherit;
+            }
+            form {
+                overflow-y: auto;
+                padding: 8px 0;
+                color:crimson;
+                font-family: 'Lato', sans-serif;
+            }
+
+        </style>
+    </head>
+    <body unresolved>
+
+        <div class="container">
+            <p>An example of
+                <code>&lt;omdb-search&gt;</code>:</p>
+            <template is="dom-bind">
+                <form>
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <label for="q">Search:</label>
+                        <input type="search" class="form-control" id="q" value="{{q::change}}" placeholder="e.g. Transformers">
+                        <br>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <label for="type">Result Type: (optional)</label>
+                        <select class="form-control" id="type" value="{{type::change}}">
+                            <option value="">any</option>
+                            <option value="movie">movie</option>
+                            <option value="series">series</option>
+                            <option value="episode">episode</option>
+                        </select>
+                        <br>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <label for="year">Year: (optional)</label>
+                        <input type="number" class="form-control" id="year" value="{{year::change}}" placeholder="e.g. 2015">
+                        <br>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <label for="page">Page: (optional)</label>
+                        <input type="number" class="form-control" id="page" value="{{page::change}}" placeholder="e.g. 1">
+                        <br>
+                    </div>
+
+                </form>
+
+                <omdb-search q="{{q}}" type="{{type}}" year="{{year}}" page="{{page}}"></omdb-search>
+            </template>
+        </div>
+
+        <script>
+            var seedElement = document.querySelector('omdb-search');
+            console.log('omdb-search element attached');
+        </script>
+
+    </body>
+</html>
