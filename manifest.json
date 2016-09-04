@@ -1,0 +1,9 @@
+{
+  "name": "omdb-search 🎬 🔍",
+  "short_name": "OMDb Search",
+  "theme_color": "crimson",
+  "background_color": "crimson",
+  "display": "standalone",
+  "scope": "/omdb-search/components/omdb-search/",
+  "start_url": "/omdb-search/components/omdb-search/"
+}

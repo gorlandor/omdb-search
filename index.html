@@ -1,29 +1,51 @@
 <!doctype html>
 <!--
 @license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+Copyright © 2016 Giovanni Orlando Rivera
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <html>
-<head>
+    <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="author" content="Giovanni Orlando">
+        <meta name="description" content="Demo showcasing how to use omdb-search web component to fetch movie, series, episode data from the Open Movie Database (OMDb) api.">
+        <meta name="theme-color" content="crimson">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../iron-component-page/iron-component-page.html">
+        <!-- Disable tap highlight on IE -->
+        <meta name="msapplication-tap-highlight" content="no">
 
-</head>
-<body unresolved>
-  <!-- Note: if the main element for this repository doesn't
-       match the folder name, add a src="&lt;main-component&gt;.html" attribute,
-       where &lt;main-component&gt;.html" is a file that imports all of the
-       components you want documented. -->
-  <iron-component-page></iron-component-page>
+        <!-- Web Application Manifest -->
+        <link rel="manifest" href="/manifest.json">
 
-</body>
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="omdb-search 🎬 🔍">
+        <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="omdb-search 🎬 🔍">
+        <!-- <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png"> -->
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+        <meta name="msapplication-TileColor" content="crimson">
+
+        <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+        <link rel="import" href="../iron-component-page/iron-component-page.html">
+
+    </head>
+    <body unresolved>
+
+        <iron-component-page></iron-component-page>
+
+    </body>
 </html>

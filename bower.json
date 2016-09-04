@@ -1,6 +1,6 @@
 {
   "name": "omdb-search",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "authors": [
     "Giovanni Orlando Rivera <gorlandor@gmail.com>"
   ],
@@ -21,17 +21,20 @@
     "custom-element"
   ],
   "main": "omdb-search.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
+  "license": "MIT",
   "homepage": "https://github.com/giovanni0918/omdb-search/",
   "ignore": [
     "/.*",
-    "/test/"
+    "/test/",
+    "/bower_components"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0"
+    "polymer": "Polymer/polymer#^1.4.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "^4.0.0"
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
