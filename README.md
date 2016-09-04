@@ -31,6 +31,9 @@ Install the component using <a href="https://bower.io/">bower</a>
 
 Or download the <a href="https://github.com/giovanni0918/omdb-search/archive/master.zip">.zip file</a>
 
+Install iron-ajax dependency:
+<pre>$ bower install PolymerElements/iron-ajax --save</pre>
+
 # Usage
 
 In that index.html add the following code:
@@ -44,15 +47,16 @@ In that index.html add the following code:
     <!-- Load the WebComponents polyfill: -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/CustomElements.js"></script>
 
-    <!-- Import the omdb-search web component into your index.html: -->
-    <link rel="import" href="../omdb-search.html">
+    <!-- Import the omdb-search web component: -->
+    <link rel="import" href="bower_components/omdb-search/omdb-search.html">
 
     <!-- Optionally, import the included omdb-search-theme stylesheet: -->
-    <link rel="import" href="../omdb-search-theme.html">
+    <link rel="import" href="bower_components/omdb-search/omdb-search-theme.html">
 </head>
 <body>
     <!-- Use the element in your app:  -->
-    <omdb-search q="Harry Potter" type="movie" year="2010" page="1"></omdb-search>
+    <h1>Tarzan movies:</h1>
+    <omdb-search q="Tarzan" type="movie" page="1"></omdb-search>
 </body>
 </html>
 ```
