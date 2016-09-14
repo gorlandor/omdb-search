@@ -1,6 +1,6 @@
 {
   "name": "omdb-search",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "authors": [
     "Giovanni Orlando Rivera <gorlandor@gmail.com>"
   ],
@@ -29,7 +29,8 @@
     "/bower_components"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
