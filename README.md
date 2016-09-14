@@ -5,13 +5,10 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.0.4
+Version: 0.0.5
 <ul>
-	<li>Added iron-demo-helpers and webcomponentsjs to dev-dependencies.</li>
-	<li>bower ignored: /bower_components directory from bundle</li>
-	<li>Added manifest.json</li>
-	<li>Updated project license to MIT</li>
-	<li>Bumped up polymer's dependency version.</li>
+	<li>Added iron-ajax to dependencies</li>
+	<li>bower updated: iron-a11y-keys-behavior</li>
 </ul>
 
 # Demo it
@@ -30,9 +27,6 @@ Install the component using <a href="https://bower.io/">bower</a>
 <pre>$ bower install omdb-search --save</pre>
 
 Or download the <a href="https://github.com/giovanni0918/omdb-search/archive/master.zip">.zip file</a>
-
-Install iron-ajax dependency:
-<pre>$ bower install PolymerElements/iron-ajax --save</pre>
 
 # Usage
 
