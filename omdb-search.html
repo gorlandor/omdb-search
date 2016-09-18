@@ -16,15 +16,22 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 <!--
 An element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.
 
-Example:
+Example using 3 params:
 
-    <omdb-search q="Harry Potter"
-      type="movie" year="2010" page="1">
+    <omdb-search q="Transformers"
+      type="movie" page="1">
     </omdb-search>
 
-Example:
+Example using all params:
 
-    <omdb-search q="Spongebob" type="series"></omdb-search>
+    <omdb-search q="Pocahontas"
+      type="movie" year="1995" page="1">
+    </omdb-search>
+
+Example using 2 params:
+
+    <omdb-search q="Spongebob" 
+      type="series"></omdb-search>
 
 @demo demo/index.html
 @hero hero.svg
@@ -93,7 +100,7 @@ Example:
             }
         </style>
 
-        <iron-ajax auto url="{{url}}" handle-as="json" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>
+        <iron-ajax auto url="{{url}}" handle-as="json" loading="{{loading}}" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>
         <div class="results-list">
             <template is="dom-repeat" items="{{response.Search}}">
                 <a href="#" class="results-list-item" on-click="_handleClick">
@@ -172,6 +179,14 @@ Example:
                  * Is required. */
                 url: {
                     computed: 'computeUrl(q, type, year, responseType, page, apiVersion)'
+                },
+                /**
+                 * iron-ajax loading indicator */                 
+                loading: {
+                    type: Boolean,
+                    value: false,
+                    notify: true,
+                    reflectToAttribute: true
                 }
             },
             /**
