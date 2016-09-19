@@ -5,10 +5,10 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.0.5
+Version: 0.1.0
 <ul>
-	<li>Added iron-ajax to dependencies</li>
-	<li>bower updated: iron-a11y-keys-behavior</li>
+	<li>Added iron-ajax loading indicator to omdb-search element</li>
+    <li>Updated demo</li>
 </ul>
 
 # Demo it
