@@ -5,10 +5,10 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.1.0
+Version: 0.1.1
 <ul>
-	<li>Added iron-ajax loading indicator to omdb-search element</li>
-    <li>Updated demo</li>
+	<li>Generate placeholder img</li>
+    <li>Update _computeImgSrc to use omdb-search.png as fallback</li>
 </ul>
 
 # Demo it
