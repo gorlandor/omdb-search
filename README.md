@@ -5,10 +5,11 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.1.2
+Version: 0.2.0
 <ul>
-	<li>Add images folder to root dir</li>
-    <li>Update omdb-search element default theme</li>
+	<li>Rewrite element structure to make it more accessible</li>
+	<li>Implement BEM</li>
+	<li>Update theme file</li>
 </ul>
 
 # Demo it
