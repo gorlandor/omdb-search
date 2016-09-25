@@ -5,11 +5,10 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.2.0
+Version: 0.2.1
 <ul>
-	<li>Rewrite element structure to make it more accessible</li>
-	<li>Implement BEM</li>
-	<li>Update theme file</li>
+	<li>Add margin to result__list-items</li>
+    <li>Add media query for only screen and min-width: 1200px</li>
 </ul>
 
 # Demo it

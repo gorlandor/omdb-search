@@ -1,6 +1,6 @@
 {
   "name": "omdb-search",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "authors": [
     "Giovanni Orlando Rivera <gorlandor@gmail.com>"
   ],
@@ -33,9 +33,9 @@
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.0",
     "web-component-tester": "^4.3.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.22"
   }
 }
