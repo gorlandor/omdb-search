@@ -5,11 +5,9 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.2.1
-<ul>
-	<li>Add margin to result__list-items</li>
-    <li>Add media query for only screen and min-width: 1200px</li>
-</ul>
+Version: 0.2.2
+- Remove redundant css properties
+
 
 # Demo it
 <a href="https://giovanni0918.github.io/omdb-search/">https://giovanni0918.github.io/omdb-search/</a>
