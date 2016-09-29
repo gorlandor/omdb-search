@@ -190,7 +190,7 @@ Example using 2 params:
                  * Specifies the movie, series, or episode title to query.
                  * Search value.
                  * Is required. */
-                q: {
+                 q: {
                     type: String,
                     value: 'Harry Potter',
                     notify: true
@@ -198,7 +198,7 @@ Example using 2 params:
                 /**
                  * Search result type. Can be either movie, series, or episode.
                  * Is Optional. */
-                type: {
+                 type: {
                     type: String,
                     value: "movie",
                     notify: true
@@ -207,7 +207,7 @@ Example using 2 params:
                  * Number representing the year in which the movie, series,
                  * or episode was released.
                  * Is optional. */
-                year: {
+                 year: {
                     type: Number,
                     value: '',
                     notify: true
@@ -216,7 +216,7 @@ Example using 2 params:
                  * Specifies the data-interchange format to be used in ajax call.
                  * Can be either json, or xml.
                  * Is required. */
-                responseType: {
+                 responseType: {
                     type: String,
                     value: 'json',
                     notify: false
@@ -225,7 +225,7 @@ Example using 2 params:
                  * Specifies the results-list page number,
                  * since OMDb pages search results (10 results per page).
                  * Is optional. */
-                page: {
+                 page: {
                     type: Number,
                     value: 1,
                     notify: true
@@ -234,7 +234,7 @@ Example using 2 params:
                  * Specified the OMDb API version number, for future reference
                  * when said API updated.
                  * Is optional. */
-                apiVersion: {
+                 apiVersion: {
                     type: Number,
                     value: 1,
                     notify: false
@@ -242,7 +242,7 @@ Example using 2 params:
                 /**
                  * Url computed from user assigned element props.
                  * Is required. */
-                url: {
+                 url: {
                     computed: 'computeUrl(q, type, year, responseType, page, apiVersion)'
                 },
                 /**
@@ -257,17 +257,17 @@ Example using 2 params:
             /**
              * Computes and returns the request Url from the
              * user assigned element props. */
-            computeUrl: function(q, type, year, responseType, page, apiVersion) {
-                return `https://www.omdbapi.com/?s=${q}&type=${type}&y=${year}
+             computeUrl: function(q, type, year, responseType, page, apiVersion) {
+                return `https://www.omdbapi.com/?s=${ q.replace(/^\s+|\s+$/g, '') }&type=${type}&y=${year}
                 &r=${responseType}'&page=${page}&v=${apiVersion}`;
             },
             /**
              * Checks if the image source value received as input is valid,
              * otherwise returns empty string to default to the alt text. */
-            _computeImgSrc: function(src) {
+             _computeImgSrc: function(src) {
                 return (src === 'N/A')
-                    ? "../images/omdb-search.png"
-                    : src;
+                ? "../images/omdb-search.png"
+                : src;
             },
             /**
             * Used as the iron-ajax response handler function. */

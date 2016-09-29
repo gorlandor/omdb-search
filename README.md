@@ -5,8 +5,8 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.2.2
-- Remove redundant css properties
+Version: 0.2.3
+- Add regex to trim the title's leading and trailing whitespaces, in computeUrl
 
 
 # Demo it
