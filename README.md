@@ -5,8 +5,9 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.2.3
-- Add regex to trim the title's leading and trailing whitespaces, in computeUrl
+Version: 0.2.4
+- Removed 'Lato' font from element definition, changed it Arial, Helvetica
+- Changed the li element display property to inline-block, to safely remove overflow-y prop
 
 
 # Demo it
@@ -37,7 +38,7 @@ In that index.html add the following code:
     <meta charset="utf-8">
     <title>OMDb Search demo</title>
     <!-- Load the WebComponents polyfill: -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/CustomElements.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents-lite.js"></script>
 
     <!-- Import the omdb-search web component: -->
     <link rel="import" href="bower_components/omdb-search/omdb-search.html">
