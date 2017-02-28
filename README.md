@@ -3,7 +3,7 @@
 A Polymer custom element that fetches movie, series, episode data from the
 [Open Movie Database (OMDb) api](https://www.omdbapi.com/).
 
-[![license](https://img.shields.io/github/license/giovanni0918/omdb-search.svg)](https://img.shields.io/github/license/giovanni0918/omdb-search.svg) [![Bower](https://img.shields.io/bower/v/omdb-search.svg)](https://img.shields.io/bower/v/omdb-search.svg)
+[![GitHub version](https://badge.fury.io/gh/giovanni0918%2Fomdb-search.svg)](https://badge.fury.io/gh/giovanni0918%2Fomdb-search) [![Bower version](https://badge.fury.io/bo/omdb-search.svg)](https://badge.fury.io/bo/omdb-search) [![license](https://img.shields.io/github/license/giovanni0918/omdb-search.svg)](https://img.shields.io/github/license/giovanni0918/omdb-search.svg) 
 
 # Change Log
 
@@ -19,6 +19,7 @@ Version: 0.3.0
 - Set the anchor tag href property to the hash imdbID value
 - Remove bootstrap dependency from demo
 - Update demo styles
+- Add github version badge
 - Add github license badge
 - Add bower version badge
 
