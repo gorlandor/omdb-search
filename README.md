@@ -68,8 +68,7 @@ In that index.html add the following code:
 </body>
 </html>
 ```
-
-# Available on [customelements.io](https://customelements.io/giovanni0918/omdb-search/)
+# Available on [webcomponents.org](https://www.webcomponents.org/element/giovanni0918/omdb-search) and [customelements.io](https://customelements.io/giovanni0918/omdb-search/)
 
 # License
 Mit: <https://mit-license.org/>
