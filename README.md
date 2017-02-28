@@ -1,17 +1,29 @@
 # omdb-search
 
 A Polymer custom element that fetches movie, series, episode data from the
-<a href="https://www.omdbapi.com/">Open Movie Database (OMDb) api</a>.
+[Open Movie Database (OMDb) api](https://www.omdbapi.com/).
+
+[![license](https://img.shields.io/github/license/giovanni0918/omdb-search.svg)](https://img.shields.io/github/license/giovanni0918/omdb-search.svg) [![Bower](https://img.shields.io/bower/v/omdb-search.svg)](https://img.shields.io/bower/v/omdb-search.svg)
 
 # Change Log
 
-Version: 0.2.4
-- Removed 'Lato' font from element definition, changed it Arial, Helvetica
-- Changed the li element display property to inline-block, to safely remove overflow-y prop
-
+Version: 0.3.0
+- Update bower dependencies
+- Update box-sizing to border-box
+- Update element styles to use flex-box
+- Move url and computeUrl to the Private API
+- Add baseUrl property
+- Add reflectToAttribute prop to q, year, type, page, and apiVersion
+- Add on-error event listener; should an error occurs when loading an image, it will set the default img instead
+- Set the li tag id property to the imdbID value
+- Set the anchor tag href property to the hash imdbID value
+- Remove bootstrap dependency from demo
+- Update demo styles
+- Add github license badge
+- Add bower version badge
 
 # Demo it
-<a href="https://giovanni0918.github.io/omdb-search/">https://giovanni0918.github.io/omdb-search/</a>
+<https://giovanni-orlando.com/omdb-search/>
 
 # Getting Started
 
@@ -22,10 +34,10 @@ Create an index.html
 <pre>$ touch index.html</pre>
 
 # Install or Download
-Install the component using <a href="https://bower.io/">bower</a>
+Install the component using [bower](https://bower.io/).
 <pre>$ bower install omdb-search --save</pre>
 
-Or download the <a href="https://github.com/giovanni0918/omdb-search/archive/master.zip">.zip file</a>
+Or download the [.zip file](https://github.com/giovanni0918/omdb-search/archive/master.zip)
 
 # Usage
 
@@ -38,7 +50,7 @@ In that index.html add the following code:
     <meta charset="utf-8">
     <title>OMDb Search demo</title>
     <!-- Load the WebComponents polyfill: -->
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents-lite.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.24/webcomponents-lite.js"></script>
 
     <!-- Import the omdb-search web component: -->
     <link rel="import" href="bower_components/omdb-search/omdb-search.html">
@@ -54,11 +66,11 @@ In that index.html add the following code:
 </html>
 ```
 
-# Available on <a href="https://customelements.io/giovanni0918/omdb-search/">customelements.io</a>
+# Available on [customelements.io](https://customelements.io/giovanni0918/omdb-search/)
 
 # License
-Mit: <a href="https://mit-license.org/">https://mit-license.org/</a>
+Mit: <https://mit-license.org/>
 
-Copyright 2016: <a href="https://github.com/giovanni0918">Giovanni Orlado Rivera</a>
+Copyright 2017: [Giovanni Orlado Rivera](https://github.com/giovanni0918)
 
-Website: <a href="http://giovanni-orlando.com">http://giovanni-orlando.com</a>
+Website: <https://giovanni-orlando.com/>

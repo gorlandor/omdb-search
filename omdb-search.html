@@ -25,7 +25,9 @@ SOFTWARE.
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <!--
-An element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.
+A custom element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.
+
+API version: [0.3.0](https://github.com/giovanni0918/omdb-search/blob/master/README.md)
 
 Example using 3 params:
 
@@ -36,7 +38,8 @@ Example using 3 params:
 Example using all params:
 
     <omdb-search q="Pocahontas"
-      type="movie" year="1995" page="1">
+      type="movie" year="1995" 
+      page="1" apiVersion="1">
     </omdb-search>
 
 Example using 2 params:
@@ -55,57 +58,79 @@ Example using 2 params:
                 display: block;
                 box-sizing: border-box;
             }
+            
             ul.result__list {
-                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
                 margin: 0;
                 padding: 0;
                 list-style-type: none;
-                @apply(--omdb-search-result__list-theme)
+                @apply --omdb-search-result__list-theme;
             }
+            
             img.result__poster {
                 width: 100%;
+                pointer-events: none;
             }
+            
             li.result__list-item {
                 will-change: width;
                 transition: width ease 0.2s;
+                margin: 0.5em;
+                @apply --omdb-search-result__list-item-theme;
             }
-            /* Phones--small */
-            @media only screen and (min-width : 320px) {
-                li.result__list-item {
-                    float: none;
-                    width: 100%;
-                    height: auto;
-                    margin: 4px 0;
-                    padding: 16px;
-                    border: 1px solid #eee;
-                    display: inline-block;
-                    font-family: Arial, Helvetica, sans-serif;
-                    color: black;
-                    @apply(--omdb-search-result__list-item-theme)
-                }
-                img.result__poster {
-                    float: left;
-                    width: 33%;
-                    max-width: 128px;
-                    margin: 0 auto;
-                    @apply(--omdb-search-result__poster-theme)
-                }
-                a.result__link {
-                    float: right;
-                    width: 66%;
-                    height: auto;
-                    display: flex;
-                    flex-direction: column;
-                    text-align: center;
-                    @apply(--omdb-search-result__link-theme)
-                }
+            
+            a.result__link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                @apply --omdb-search-result__link-theme;
+            }
+            
+            h4.result__heading {
+                flex: 1;
+                margin: 0.5em;
+                font-size: 1em;
+                pointer-events: none;
+                @apply --omdb-search-result__heading-theme;
+            }
+            
+            p.result__text--key {
+                margin: 1em;
+                @apply --omdb-search-result__text--key-theme;
+            }
+            
+            span.result__text--value {
+                @apply --omdb-search-result__text--value-theme;
             }
 
-            /* Phones--large */
-            @media only screen and (min-width : 425px) {
+            /* Phones--small */            
+            @media only screen and (min-width: 320px) {
+                li.result__list-item {
+                    width: auto;
+                    height: auto;
+                    border: 1px solid #eee;
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: black;
+                }
+                img.result__poster {
+                    flex: 1;
+                    max-width: 128px;
+                    margin: 0 auto;
+                    @apply --omdb-search-result__poster-theme;
+                }
+                a.result__link {
+                    flex-direction: row;
+                }
+            }
+            
+            /* Phones--large */            
+            @media only screen and (min-width: 425px) {
                 li.result__list-item {
                     float: left;
-                    width: 49%;
+                    width: 48%;
                     height: 400px;
                     margin: 0.5em 0.5%;
                     display: flex;
@@ -114,66 +139,60 @@ Example using 2 params:
                     flex-direction: column;
                 }
                 img.result__poster {
-                    float: none;
                     width: auto;
                     max-width: 100%;
                     max-height: 192px;
                 }
                 a.result__link {
-                    float: none;
-                    width: 100%;
+                    flex-direction: column;
                 }
             }
 
-            /* Tablet--portrait */
-            @media only screen and (min-width : 768px) {
+            /* Tablet--portrait */            
+            @media only screen and (min-width: 768px) {
                 li.result__list-item {
                     width: 32%;
                 }
             }
 
-            /* Tablet--landscape */
-            @media only screen and (min-width : 992px) {
+            /* Tablet--landscape */            
+            @media only screen and (min-width: 992px) {
                 li.result__list-item {
                     width: 24%;
                 }
             }
-
-            /* Large Devices, Wide Screens */
-            @media only screen and (min-width : 1200px) {
+            
+            /* Large Devices, Wide Screens */            
+            @media only screen and (min-width: 1200px) {
                 li.result__list-item {
                     width: 19%;
                 }
             }
-
-            h4.result__heading {
-                font-size: 1em;
-                @apply(--omdb-search-result__heading-theme)
-            }
-            p.result__text--key {
-                @apply(--omdb-search-result__text--key-theme)
-            }
-            span.result__text--value {
-                @apply(--omdb-search-result__text--value-theme)
-            }
-
         </style>
 
-        <iron-ajax auto url="{{url}}" handle-as="json" loading="{{loading}}" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>
+        <iron-ajax auto url="{{_url}}" handle-as="json" loading="{{loading}}" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>
         <ul class="result__list">
             <template is="dom-repeat" items="{{response.Search}}">
-                <li class="result__list-item" on-click="_handleClick">
-                    <img class="result__poster" src$="{{_computeImgSrc(item.Poster)}}" alt="{{item.Title}}">
-                    <a class="result__link" href="#">
-                        <h4 class="result__heading">{{item.Title}}</h4>
-                        <p class="result__text--key">Year:
-                            <span class="result__text--value">{{item.Year}}</span>
-                        </p>
-                        <p class="result__text--key">imdbID:
-                            <span class="result__text--value">{{item.imdbID}}</span>
-                        </p>
+
+                <li class="result__list-item" id="{{item.imdbID}}" on-click="_handleClick">
+                    <a class="result__link" href="#{{item.imdbID}}">
+
+                        <img class="result__poster" src$="{{_computeImgSrc(item.Poster)}}" alt="{{item.Title}}" on-error="_handleError">
+
+                        <h4 class="result__heading">{{item.Title}}
+
+                            <p class="result__text--key">Year:
+                                <span class="result__text--value">{{item.Year}}</span>
+                            </p>
+                            <p class="result__text--key">imdbID:
+                                <span class="result__text--value">{{item.imdbID}}</span>
+                            </p>
+
+                        </h4>
+
                     </a>
                 </li>
+
             </template>
         </ul>
 
@@ -188,33 +207,36 @@ Example using 2 params:
                  * Specifies the movie, series, or episode title to query.
                  * Search value.
                  * Is required. */
-                 q: {
+                q: {
                     type: String,
                     value: 'Harry Potter',
-                    notify: true
+                    notify: true,
+                    reflectToAttribute: true
                 },
                 /**
                  * Search result type. Can be either movie, series, or episode.
                  * Is Optional. */
-                 type: {
+                type: {
                     type: String,
                     value: "movie",
-                    notify: true
+                    notify: true,
+                    reflectToAttribute: true
                 },
                 /**
                  * Number representing the year in which the movie, series,
                  * or episode was released.
                  * Is optional. */
-                 year: {
+                year: {
                     type: Number,
                     value: '',
-                    notify: true
+                    notify: true,
+                    reflectToAttribute: true
                 },
                 /**
                  * Specifies the data-interchange format to be used in ajax call.
                  * Can be either json, or xml.
                  * Is required. */
-                 responseType: {
+                responseType: {
                     type: String,
                     value: 'json',
                     notify: false
@@ -223,28 +245,41 @@ Example using 2 params:
                  * Specifies the results-list page number,
                  * since OMDb pages search results (10 results per page).
                  * Is optional. */
-                 page: {
+                page: {
                     type: Number,
                     value: 1,
-                    notify: true
+                    notify: true,
+                    reflectToAttribute: true
                 },
                 /**
                  * Specified the OMDb API version number, for future reference
                  * when said API updated.
                  * Is optional. */
-                 apiVersion: {
+                apiVersion: {
                     type: Number,
                     value: 1,
-                    notify: false
+                    notify: true,
+                    reflectToAttribute: true
+                },
+                /**
+                 * OMDb API endpoint */
+                baseUrl: {
+                    type: String,
+                    readOnly: true,
+                    value: 'https://www.omdbapi.com',
+                    reflectToAttribute: true
                 },
                 /**
                  * Url computed from user assigned element props.
                  * Is required. */
-                 url: {
-                    computed: 'computeUrl(q, type, year, responseType, page, apiVersion)'
+                _url: {
+                    type: String,
+                    readOnly: true,
+                    computed: '_computeUrl(baseUrl, q, type, year, responseType, page, apiVersion)',
+                    notify: true
                 },
                 /**
-                * iron-ajax loading indicator */
+                 * iron-ajax loading indicator */
                 loading: {
                     type: Boolean,
                     value: false,
@@ -255,29 +290,35 @@ Example using 2 params:
             /**
              * Computes and returns the request Url from the
              * user assigned element props. */
-             computeUrl: function(q, type, year, responseType, page, apiVersion) {
-                return `https://www.omdbapi.com/?s=${ q.replace(/^\s+|\s+$/g, '') }&type=${type}&y=${year}
+            _computeUrl: function (baseUrl, q, type, year, responseType, page, apiVersion) {
+                return `${baseUrl}/?s=${q.replace(/^\s+|\s+$/g, '')}&type=${type}&y=${year}
                 &r=${responseType}'&page=${page}&v=${apiVersion}`;
             },
             /**
              * Checks if the image source value received as input is valid,
              * otherwise returns empty string to default to the alt text. */
-             _computeImgSrc: function(src) {
+            _computeImgSrc: function (src) {
                 return (src === 'N/A')
-                ? "../images/omdb-search.png"
-                : src;
+                    ? "../images/omdb-search.png"
+                    : src;
             },
             /**
-            * Used as the iron-ajax response handler function. */
-            _handleResponse: function(event) {
+             * Used as the iron-ajax response handler function. */
+            _handleResponse: function (event) {
                 var omdbSearch = omdbSearch || {};
                 omdbSearch.omdbResponse = event.detail.response;
                 console.debug(omdbSearch);
             },
             /**
-            * Results list-item onClick listener function. */
-            _handleClick: function(event) {
-                console.debug(event.model.item);
+             * Results list-item onClick listener function. */
+            _handleClick: function (event) {
+                console.debug({ "item": event.model.item, "target": event.target });
+            },
+            /**
+             * Img Src onError handler function */
+            _handleError: function (event) {
+                event.target.src = '../images/omdb-search.png';
+                console.debug('set img.src for ' + event.target);
             }
 
         });

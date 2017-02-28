@@ -1,6 +1,6 @@
 {
   "name": "omdb-search",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "authors": [
     "Giovanni Orlando Rivera <gorlandor@gmail.com>"
   ],
@@ -29,13 +29,13 @@
     "/bower_components"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.6.1",
+    "polymer": "Polymer/polymer#^1.8.0",
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.0",
-    "web-component-tester": "^4.3.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.22"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.8",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5",
+    "web-component-tester": "^5.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.24"
   }
 }
