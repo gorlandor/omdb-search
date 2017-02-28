@@ -3,7 +3,8 @@
 A Polymer custom element that fetches movie, series, episode data from the
 [Open Movie Database (OMDb) api](https://www.omdbapi.com/).
 
-[![GitHub version](https://badge.fury.io/gh/giovanni0918%2Fomdb-search.svg)](https://badge.fury.io/gh/giovanni0918%2Fomdb-search) [![Bower version](https://badge.fury.io/bo/omdb-search.svg)](https://badge.fury.io/bo/omdb-search) [![license](https://img.shields.io/github/license/giovanni0918/omdb-search.svg)](https://img.shields.io/github/license/giovanni0918/omdb-search.svg) 
+[![GitHub version](https://badge.fury.io/gh/giovanni0918%2Fomdb-search.svg)](https://badge.fury.io/gh/giovanni0918%2Fomdb-search) [![Bower version](https://badge.fury.io/bo/omdb-search.svg)](https://badge.fury.io/bo/omdb-search) [![license](https://img.shields.io/github/license/giovanni0918/omdb-search.svg)](https://img.shields.io/github/license/giovanni0918/omdb-search.svg) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/giovanni0918/omdb-search)
+
 
 # Change Log
 
@@ -22,6 +23,7 @@ Version: 0.3.0
 - Add github version badge
 - Add github license badge
 - Add bower version badge
+- Add Published on webcomponents.org badge
 
 # Demo it
 <https://giovanni-orlando.com/omdb-search/>
