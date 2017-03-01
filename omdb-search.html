@@ -291,8 +291,7 @@ Example using 2 params:
              * Computes and returns the request Url from the
              * user assigned element props. */
             _computeUrl: function (baseUrl, q, type, year, responseType, page, apiVersion) {
-                return `${baseUrl}/?s=${q.replace(/^\s+|\s+$/g, '')}&type=${type}&y=${year}
-                &r=${responseType}'&page=${page}&v=${apiVersion}`;
+                return `${baseUrl}/?s=${q.replace(/^\s+|\s+$/g, '')}&type=${type}&y=${year}&r=${responseType}'&page=${page}&v=${apiVersion}`;
             },
             /**
              * Checks if the image source value received as input is valid,

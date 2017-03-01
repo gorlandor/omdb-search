@@ -8,21 +8,10 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.3.0
-- Update bower dependencies
-- Update box-sizing to border-box
-- Update element styles to use flex-box
-- Move url and computeUrl to the Private API
-- Add baseUrl property
-- Add reflectToAttribute prop to q, year, type, page, and apiVersion
-- Add on-error event listener; should an error occurs when loading an image, it will set the default img instead
-- Set the li tag id property to the imdbID value
-- Set the anchor tag href property to the hash imdbID value
-- Remove bootstrap dependency from demo
-- Update demo styles
+Version: 0.3.1
+- Remove unnecessary EOL on _computeUrl return statement
 - Add github version badge
-- Add github license badge
-- Add bower version badge
+- Update bower version badge
 - Add Published on webcomponents.org badge
 
 # Demo it
@@ -48,7 +37,7 @@ In that index.html add the following code:
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>OMDb Search demo</title>
@@ -68,7 +57,7 @@ In that index.html add the following code:
 </body>
 </html>
 ```
-# Available on [webcomponents.org](https://www.webcomponents.org/element/giovanni0918/omdb-search) and [customelements.io](https://customelements.io/giovanni0918/omdb-search/)
+# Available on [webcomponents.org](https://www.webcomponents.org/element/giovanni0918/omdb-search) 
 
 # License
 Mit: <https://mit-license.org/>
