@@ -1,6 +1,6 @@
 <!--
 @license
-Copyright © 2016 Giovanni Orlando Rivera
+Copyright © 2017 Giovanni Orlando Rivera
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the “Software”), to deal in
@@ -27,7 +27,7 @@ SOFTWARE.
 <!--
 A custom element that fetches movie, series, episode data from the Open Movie Database (OMDb) api.
 
-API version: [0.3.0](https://github.com/giovanni0918/omdb-search/blob/master/README.md)
+API version: [0.4.0](https://github.com/giovanni0918/omdb-search/blob/master/README.md)
 
 Example using 3 params:
 
@@ -58,7 +58,13 @@ Example using 2 params:
                 display: block;
                 box-sizing: border-box;
             }
-            
+            p.result__amount {
+                padding: 0.5em;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1em;
+                font-weight: 500;
+                @apply --omdb-search-result__amount-theme;          
+            }
             ul.result__list {
                 display: flex;
                 flex-wrap: wrap;
@@ -170,7 +176,18 @@ Example using 2 params:
             }
         </style>
 
-        <iron-ajax auto url="{{_url}}" handle-as="json" loading="{{loading}}" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>
+        <iron-ajax auto url="{{_url}}" handle-as="json" loading="{{loading}}" on-response="_handleResponse" last-response="{{response}}"></iron-ajax>   
+
+        <section class="section--result__amount">
+            <template is="dom-if" if="{{response.totalResults}}">
+                <p class="result__amount">Results found: {{response.totalResults}}</p>
+            </template>
+            
+            <template is="dom-if" if="{{!response.totalResults}}">
+                <p class="result__amount">Results found: 0</p>
+            </template>       
+        </section>
+        
         <ul class="result__list">
             <template is="dom-repeat" items="{{response.Search}}">
 
@@ -229,8 +246,7 @@ Example using 2 params:
                 year: {
                     type: Number,
                     value: '',
-                    notify: true,
-                    reflectToAttribute: true
+                    notify: true
                 },
                 /**
                  * Specifies the data-interchange format to be used in ajax call.

@@ -8,11 +8,42 @@ A Polymer custom element that fetches movie, series, episode data from the
 
 # Change Log
 
-Version: 0.3.1
-- Remove unnecessary EOL on _computeUrl return statement
-- Add github version badge
-- Update bower version badge
-- Add Published on webcomponents.org badge
+Version: 0.4.0
+- Remove year's reflectToAttribute prop  
+  ```diff  
+  year: {
+      type: Number,
+      value: '',
+  -   notify: true,
+  -   reflectToAttribute: true
+  +   notify: true
+  }
+  ```
+- Add results amount to omdb-search.html
+    ```html
+    <style>
+      p.result__amount {        
+        @apply --omdb-search-result__amount-theme;          
+      }
+    </style>
+    <section class="section--result__amount">
+      <template is="dom-if" if="{{response.totalResults}}">
+        <p class="result__amount">Results found: {{response.totalResults}}</p>
+      </template>
+        
+      <template is="dom-if" if="{{!response.totalResults}}">
+        <p class="result__amount">Results found: 0</p>
+      </template>       
+    </section>
+    ```
+- Update results amount selector to theme.html
+  ```html
+  <style is="custom-style">
+  omdb-search{
+    --omdb-search-result__amount-theme:{};
+  }
+  </style>
+  ```
 
 # Demo it
 <https://giovanni-orlando.com/omdb-search/>
