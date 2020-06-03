@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMDB Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css">
+    <style>
+        .card,
+        .card-header{
+            border-radius: 0 !important;            
+        }
+        .card {
+            border: 1px solid #eee;
+        }
+        .card-header {
+            background-color: #0366bb;
+            color: white;
+            border-radius: 0;
+            border: none;            
+        }
+        .result__link {
+            color: #0366bb !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-2 m-0">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">Search for a movie or series</div>
+                <div class="card-body">
+                    <form name="omdb-search">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="q">Title</label>
+                                    <input class="form-control" type="text" name="q" id="q" onchange="handleChange(this.name, this.value)" value="Pocahontas">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="type">Type</label>
+                                    <select class="form-control" name="type" id="type" onchange="handleChange(this.name, this.value)">
+                                        <option value="movie" selected>Movie</option>
+                                        <option value="series">Series</option>
+                                    </select>              
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input class="form-control" type="text" name="year" id="year" onchange="handleChange(this.name, this.value)" value="1995">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="page">Page</label>
+                                    <input class="form-control" type="text" name="page" id="page" onchange="handleChange(this.name, this.value)" value="1">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script> 
+            function handleChange(name, value) {                
+                const omdbSearch = document.querySelector("omdb-search");
+                omdbSearch.setAttribute(name, value);
+            }
+        </script>
+        <div class="container">
+            <omdb-search q="Pocahontas" type="movie" year="1995" page="1" api-version="1"></omdb-search>
+        </div>
+    </div>
+    <script src="./omdb-search.js"></script>
+</body>
+</html>

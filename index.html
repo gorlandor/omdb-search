@@ -1,51 +1,85 @@
-<!doctype html>
-<!--
-@license
-Copyright © 2016 Giovanni Orlando Rivera
+<!DOCTYPE html>
+<html lang="en">
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Giovanni Orlando">
+    <meta name="description" content="Demo showcasing how to use omdb-search web component to fetch movie, series, episode data from the Open Movie Database (OMDb) api.">        
+    <meta name="theme-color" content="#0366bb">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMDB Search</title>
+    
+     <!-- Disable tap highlight on IE -->
+     <meta name="msapplication-tap-highlight" content="no">
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+     <!-- Web Application Manifest -->
+     <link rel="manifest" href="./manifest.json">
 
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
--->
-<html>
-    <head>
+     <!-- Add to homescreen for Chrome on Android -->
+     <meta name="mobile-web-app-capable" content="yes">
+     <meta name="application-name" content="omdb-search 🎬 🔎">     
 
-        <meta charset="utf-8">
-        <meta name="author" content="Giovanni Orlando">
-        <meta name="description" content="Demo showcasing how to use omdb-search web component to fetch movie, series, episode data from the Open Movie Database (OMDb) api.">
-        <meta name="theme-color" content="crimson">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Add to homescreen for Safari on iOS -->
+     <meta name="apple-mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+     <meta name="apple-mobile-web-app-title" content="omdb-search 🎬 🔎">     
 
-        <!-- Disable tap highlight on IE -->
-        <meta name="msapplication-tap-highlight" content="no">
+     <!-- Tile icon for Win8 (144x144 + tile color) -->     
+     <meta name="msapplication-TileColor" content="#0366bb">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/prism/prism.css">
+    <script src="./lib/prism/prism.js"></script>
+    <style>
+        .card,
+        .card-header {
+            border-radius: 0 !important;
+        }
 
-        <!-- Web Application Manifest -->
-        <link rel="manifest" href="/omdb-search/components/omdb-search/manifest.json">
+        .card {
+            border: 1px solid #eee;
+        }
 
-        <!-- Add to homescreen for Chrome on Android -->
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="application-name" content="omdb-search 🎬 🔍">
-        <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
+        .card-header {
+            background-color: #0366bb;
+            color: white;
+            border-radius: 0;
+            border: none;
+        }
 
-        <!-- Add to homescreen for Safari on iOS -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta name="apple-mobile-web-app-title" content="omdb-search 🎬 🔍">
-        <!-- <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png"> -->
+        .result__link {
+            color: #0366bb !important;
+        }
+    </style>
+</head>
 
-        <!-- Tile icon for Win8 (144x144 + tile color) -->
-        <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
-        <meta name="msapplication-TileColor" content="crimson">
+<body>
+    <header>
+        <nav class="w-100 text-center d-flex justify-content-center align-items-center"
+            style="height: 56px;background-color: #0366bb;color: white;">
+            OMDB-Search 🔎 &nbsp;<a class="text-white" href="./demo.html">Demo It</a>
+        </nav>
+    </header>
+    <div class="container-fluid py-2 m-0">
+        <div class="container">
+            <pre><code class="language-html">
+    &lt;omdb-search q="Pocahontas" 
+        type="movie" 
+        year="1995" 
+        page="1" 
+        api-version="1">
+    &lt;/omdb-search>
 
-        <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-        <link rel="import" href="../iron-component-page/iron-component-page.html">
+    &lt;script src="./omdb-search.js">&lt;/script>
+</code></pre>
+        </div>
+    </div>
+    <div class="container-fluid py-2 m-0">
+        <div class="container">
+            <omdb-search q="Pocahontas" type="movie" year="1995" page="1" api-version="1"></omdb-search>
+        </div>
+    </div>
+    <script src="./omdb-search.js"></script>
+</body>
 
-    </head>
-    <body unresolved>
-
-        <iron-component-page></iron-component-page>
-
-    </body>
 </html>
